@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.ContinuousTimeMarkovProcessesDiscreteTheoremCanonicalLaneLean.TransitionSemigroup
+import HautevilleHouse.ContinuousTimeMarkovProcessesDiscreteTheoremCanonicalLaneLean.GeneratorAndEmbedding
+import HautevilleHouse.ContinuousTimeMarkovProcessesDiscreteTheoremCanonicalLaneLean.JumpProcessAndConvergence
+
+namespace HautevilleHouse
+namespace ContinuousTimeMarkovProcessesDiscreteTheoremCanonicalLaneLean
+
+def ConstrainedCTMProcessClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_ctmp_endgame (A : AdmissibleClass) :
+    ConstrainedCTMProcessClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ContinuousTimeMarkovProcessesDiscreteTheoremCanonicalLaneLean
+end HautevilleHouse
